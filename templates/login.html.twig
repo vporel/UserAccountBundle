@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{app.request.locale|split('_')[0]}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Connectez-vous à votre compte pour accéder à des fonctionnalités personnalisées. Gérez vos informations, explorez du contenu exclusif et interagissez avec la communauté."/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/favicons/favicon-512x512.png" />
+        <title>Connectez-vous</title>
+        <meta name="author" content="Lahotte"/>
+        <meta name="copyright" content="Lahotte"/>
+        {% include "@Root/_organization-description-script.html.twig" %} 
+
+        {# Styles from Symfony Encore #}
+        {{ encore_entry_link_tags('bundles') }}
+
+        {# Scripts from Symfony Encore #}
+        {{ encore_entry_script_tags('bundles') }}
+        <script>
+            const _TARGET_PATH = "{{referer}}"
+            const _CSRF_TOKEN = "{{ csrf_token('authenticate') }}"
+            const _ERROR = "{{ error ? (error.messageKey | trans(error.messagedata, 'security')) : '' }}"
+            const _LAST_USERNAME = "{{last_username}}"
+            const _SIGN_UP_URL = "{{signUpUrl}}"
+            const _TRANSLATIONS = {{TRANSLATIONS|json_encode|raw}}
+        </script>
+    </head>
+    <body>
+        <x-login></x-login>
+    </body>
+</html>

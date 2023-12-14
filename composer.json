@@ -1,0 +1,29 @@
+{
+    "name": "vporel/user-account-bundle",
+    "description": "Vporel UserAccountBundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "keywords": ["user", "user-account", "account"],
+    "authors": [{"name": "Vivian NKOUANANG", "email": "dev.vporel@gmail.com", "homepage": "https://www.vporel.com"}],
+    
+    "require": {
+        "php": "^8.0",
+        "symfony/framework-bundle": "^6.0 || ^7.0",
+        "symfony/translation": "6.2.*",
+        "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/orm": "^2.12",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "suggest": {
+        "ext-pdo": "*",
+        "easycorp/easyadmin-bundle": "EasyAdmin integration is optional in the bundle."
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "UserAccountBundle\\": "src/"
+        }
+    }
+
+}

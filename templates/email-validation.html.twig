@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{app.request.locale|split('_')[0]}}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Connectez-vous à votre compte pour accéder à des fonctionnalités personnalisées. Gérez vos informations, explorez du contenu exclusif et interagissez avec la communauté."/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/favicons/favicon-512x512.png" />
+        <title>Vérification de l'adresse email</title>
+        <meta name="author" content="Lahotte"/>
+        <meta name="copyright" content="Lahotte"/>
+        <meta name="robots" content="noindex, nofollow">
+        {% include "@Root/_organization-description-script.html.twig" %} 
+
+        {# Styles from Symfony Encore #}
+        {{ encore_entry_link_tags('bundles') }}
+
+        {# Data used by javascript #}
+        <script type="text/javascript">
+            {% if not user %}
+                const _USER = {id: null} 
+            {% else %}
+                const _USER = {{user|serialize("default", "user:read:collection", "user:read:item")|raw}}
+            {% endif %}
+            const _TRANSLATIONS = {{TRANSLATIONS|json_encode|raw}}
+        </script>
+        {# Scripts from Symfony Encore #}
+        {{ encore_entry_script_tags('bundles') }}
+        
+    </head>
+    <body id="email-validation-page" class="bg-rgb240">
+        <x-email-validation></x-email-validation>
+    </body>
+</html>

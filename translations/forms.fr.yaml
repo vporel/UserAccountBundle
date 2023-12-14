@@ -1,0 +1,21 @@
+Email: Email
+New email: Nouvel email
+Your email address: Votre adresse email
+Your new password: Votre nouveau mot de passe
+First name: Prénom
+First Name: Prénom
+Last name: Nom
+Last Name: Nom
+New address: Nouvelle adresse
+The two passwords are not the same: Les mots de passe ne sont pas identiques
+Current password: Mot de passe actuel
+New password: Nouveau mot de passe 
+Confirm the password: Confirmer le mot de passe
+Code incorrect: Code incorrect
+Password reset: Mot de passe réinitialisé
+Should start with a letter and contains only contains lowercase letters, numbers and (- ou _) (no space): Doit commencer par une lettre et ne peut contenir que des lettres minuscules, chiffres et tirets (- ou _) (pas d'espaces)
+The passwords are different: Les mots de passe sont différents
+
+#error messages codes
+current_password_incorrect: Mot de passe actuel incorrect
+new_password_length: Nouveau mot de passe trop court
