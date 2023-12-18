@@ -1,8 +1,8 @@
 <?php
 namespace UserAccountBundle\Entity\UserAction;
 
-use RootBundle\Entity\Entity;
-use RootBundle\Entity\Trait\TimestampsTrait;
+use VporelBundle\Entity\Entity;
+use VporelBundle\Entity\Trait\TimestampsTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation as Serializer;
 use UserAccountBundle\Entity\UserAuthorInterface;

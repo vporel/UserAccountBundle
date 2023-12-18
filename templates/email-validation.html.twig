@@ -10,7 +10,6 @@
         <meta name="author" content="Lahotte"/>
         <meta name="copyright" content="Lahotte"/>
         <meta name="robots" content="noindex, nofollow">
-        {% include "@Root/_organization-description-script.html.twig" %} 
 
         {# Styles from Symfony Encore #}
         {{ encore_entry_link_tags('bundles') }}
@@ -23,6 +22,7 @@
                 const _USER = {{user|serialize("default", "user:read:collection", "user:read:item")|raw}}
             {% endif %}
             const _TRANSLATIONS = {{TRANSLATIONS|json_encode|raw}}
+            const THEME = {{THEME|json_encode|raw}}
         </script>
         {# Scripts from Symfony Encore #}
         {{ encore_entry_script_tags('bundles') }}

@@ -2,7 +2,7 @@
 
 namespace UserAccountBundle\Controller\Admin;
 
-use RootBundle\Controller\Admin\AbstractCrudController;
+use VporelBundle\Controller\Admin\AbstractCrudController;
 use UserAccountBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;

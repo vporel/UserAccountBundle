@@ -9,13 +9,6 @@
         <title>Connectez-vous</title>
         <meta name="author" content="Lahotte"/>
         <meta name="copyright" content="Lahotte"/>
-        {% include "@Root/_organization-description-script.html.twig" %} 
-
-        {# Styles from Symfony Encore #}
-        {{ encore_entry_link_tags('bundles') }}
-
-        {# Scripts from Symfony Encore #}
-        {{ encore_entry_script_tags('bundles') }}
         <script>
             const _TARGET_PATH = "{{referer}}"
             const _CSRF_TOKEN = "{{ csrf_token('authenticate') }}"
@@ -23,9 +16,12 @@
             const _LAST_USERNAME = "{{last_username}}"
             const _SIGN_UP_URL = "{{signUpUrl}}"
             const _TRANSLATIONS = {{TRANSLATIONS|json_encode|raw}}
+            const _THEME = {{THEME|json_encode|raw}}
         </script>
+        <script src="/bundles/user_account/script.js" defer></script>
+        <link rel="stylesheet" href="/bundles/user_account/style.css" />
     </head>
     <body>
-        <x-login></x-login>
+        <div id="login-page"></div>
     </body>
 </html>

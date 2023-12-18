@@ -1,11 +1,11 @@
 <?php
 namespace UserAccountBundle\Controller\Api;
 
-use RootBundle\Library\FileUpload;
-use RootBundle\Library\FileUploadException;
+use VporelBundle\Library\FileUpload;
+use VporelBundle\Library\FileUploadException;
 use UserAccountBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use RootBundle\Controller\AbstractApiController;
+use VporelBundle\Controller\AbstractApiController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

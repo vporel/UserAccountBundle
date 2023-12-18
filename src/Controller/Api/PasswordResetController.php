@@ -1,10 +1,10 @@
 <?php
 namespace UserAccountBundle\Controller\Api;
 
-use RootBundle\Service\MailerService;
+use VporelBundle\Service\MailerInterface;
 use UserAccountBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use RootBundle\Controller\AbstractApiController;
+use VporelBundle\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,13 +16,13 @@ class PasswordResetController extends AbstractApiController{
     public function __construct(private UserRepositoryInterface $userRepository){}
 
     #[Route("/send-password-reset-code", name:"sendpasswordresetcode", methods: ["POST"])]
-    public function sendPasswordResetCode(Request $request, MailerService $mailerService)
+    public function sendPasswordResetCode(Request $request, MailerInterface $mailer)
     {
         $email = $request->request->get("email");
         if(!$this->userRepository->findOneBy(["email" => $email])) return new JsonResponse($this->error("Aucun compte trouvé"));
         $code = rand(100000, 999990); // 6 digits
         $request->getSession()->set("password-reset-code", $code);
-        $mailerService->sendEmail(
+        $mailer->sendEmail(
             $email, 
             "Réinitialisation du mot de passe", 
             $this->renderView("@UserAccount/emails/password-reset.html.twig", compact("code"))

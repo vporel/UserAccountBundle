@@ -2,7 +2,7 @@
 namespace UserAccountBundle\Controller\Api;
 
 use UserAccountBundle\Entity\User;
-use RootBundle\Controller\AbstractApiController;
+use VporelBundle\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\Request;
 use UserAccountBundle\Repository\UserRepositoryInterface;
 

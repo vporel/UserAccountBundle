@@ -1,10 +1,10 @@
 <?php
 namespace UserAccountBundle\Controller\Api;
 
-use RootBundle\Service\MailerService;
+use VporelBundle\Service\MailerInterface;
 use UserAccountBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use RootBundle\Controller\AbstractApiController;
+use VporelBundle\Controller\AbstractApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class EmailValidationController extends AbstractApiController{
 
     #[Route("/send-email-validation-code", name:"sendemailvalidationcode", methods: ["POST"])]
-    public function sendEmailValidationCode(Request $request, MailerService $mailerService)
+    public function sendEmailValidationCode(Request $request, MailerInterface $mailer)
     {
         $code = rand(100000, 999990); // 6 digits
         $request->getSession()->set("email-validation-code", $code);
         /** @var User */
         $user = $this->getUser();
-        $mailerService->sendEmail(
+        $mailer->sendEmail(
             $user->getEmail(), 
             "Vérification de l'adresse email", 
             $this->renderView("@UserAccount/emails/email-validation.html.twig", compact("code"))

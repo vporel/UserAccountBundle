@@ -18,13 +18,8 @@ class UserAccountBundle extends AbstractBundle{
             ->scalarNode("repository_class")->isRequired()->end() //User repository class
             ->booleanNode("absolute_email_validation")->defaultValue(false)->end()
             ->scalarNode("signup_url")->defaultValue("/creer-un-compte")->end()
-            ->scalarNode("login_default_message")->defaultValue("Accédez aux fonctionnalités de la plateforme grâce à votre compte")->end()
-            ->arrayNode("login_targets")->arrayPrototype()
-                ->children()
-                    ->scalarNode("key")->end()
-                    ->scalarNode("message")->end()
-                ->end()
-            ->end()
+            ->scalarNode("email_validation_template")->defaultValue("@UserAccount/emails/email-validation.html.twig")->end()
+            ->scalarNode("password_reset_template")->defaultValue("@UserAccount/emails/password-reset.html.twig")->end()
         ->end();
     }
 

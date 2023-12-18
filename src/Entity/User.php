@@ -1,9 +1,9 @@
 <?php
 namespace UserAccountBundle\Entity;
 
-use RootBundle\Entity\Trait\TimestampsTrait;
+use VporelBundle\Entity\Trait\TimestampsTrait;
 use UserAccountBundle\Validator\PhoneNumber;
-use RootBundle\Entity\Entity;
+use VporelBundle\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\PasswordHasher\Hasher\MessageDigestPasswordHasher;
@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Serializer\Annotation as Serializer;
 use ApiPlatform\Metadata as Api;
-use RootBundle\Entity\Interface\EmailInterface;
+use VporelBundle\Entity\Interface\EmailInterface;
 
 /**
  * @ORM\MappedSuperclass
